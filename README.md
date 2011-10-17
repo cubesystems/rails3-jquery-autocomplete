@@ -205,6 +205,76 @@ If you need to use the id of the selected object, you can use the *id_element* a
 
 This will update the field with id *#some_element with the id of the selected object. The value for this option can be any jQuery selector.
 
+### Autocomplete widget options
+
+The Jquery autocomplete widget allow the following options: 'disabled', 'appendTo', 'autoFocus', 'delay', 'minLength', 'position', and 'source' (see: http://docs.jquery.com/UI/Autocomplete#options).  Note: The source option is not supported here since it is handled by this plugin itself.
+
+You can define values for these options by adding attributes to your 'autocomplete_field' field in the view.
+
+#### disabled
+
+Disables (true) or enables (false) the autocomplete. Can be set when initializing (first creating) the autocomplete.
+
+Default = false
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :disabled => "true"
+    
+If you disable de autocomplete when initializing, you'll probably want to enable it somewhere else in your javascript code:
+
+Get or set the disabled option, after init:
+
+    //getter
+    var disabled = $( ".selector" ).autocomplete( "option", "disabled" );
+    //setter
+    $( ".selector" ).autocomplete( "option", "disabled", false );
+
+#### appendTo
+
+Which element the menu should be appended to.
+
+Default: 'body'
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :append_to => '#another_ellement'
+
+#### autoFocus
+
+If set to true, the first item will be automatically focused.
+
+Default = false
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :autoFocus => "true"
+
+
+#### delay
+
+The delay in milliseconds the Autocomplete waits after a keystroke to activate itself.
+
+Default = 300
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :delay => "100"
+
+#### minLength
+
+The minimum number of characters a user has to type before the Autocomplete activates.
+
+Default = 2
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :min_length => "0"
+
+#### position
+
+Identifies the position of the Autocomplete widget in relation to the associated input element. The "of" option defaults to the input element, but you can specify another element to position against.
+
+Default = { my: "left top", at: "left bottom", collision: "none" }
+
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :position => "{ my: "right top", at: "right bottom", collision: "none" }"
+
+#### source
+
+Defines the data to use.
+
+The source options can obviously not be specified here since it is handled by this plugin itself.
+
 ### Getting extra object data
 
 If you need to extra data about the selected object, you can use the *:update_elements* HTML attribute.
