@@ -232,17 +232,17 @@ Get or set the disabled option, after init:
 
 Which element the menu should be appended to.
 
-Default: 'body'
+Default = 'body'
 
     f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :append_to => '#another_ellement'
 
 #### autoFocus
 
-If set to true, the first item will be automatically focused.
+So as to not conflict with the HTML input's autofocus option, the key to set this is :auto_focus. If set to true, the first item will be automatically focused.
 
 Default = false
 
-    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :autoFocus => "true"
+    f.autocomplete_field :brand_name, autocomplete_brand_name_products_path, :auto_focus => "true"
 
 
 #### delay
